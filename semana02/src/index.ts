@@ -1,4 +1,5 @@
 import Cachorro from "./Cachorro";
+import ContaBancaria from "./ContaBancaria";
 import Dono from "./Dono";
 
 //------------------------------------------//
@@ -33,7 +34,15 @@ import Dono from "./Dono";
 
 //------------------------------------------//
 
-var d3 = new Dono("Luis", "(00) 0000-0000")
-var c3 = new Cachorro("Carlos", "Vira-lata", "Caramelo", "Pequeno", d3)
-c3.exibirCachorro()
-c3.exibirDono()
+// var d3 = new Dono("Luis", "(00) 0000-0000")
+// var c3 = new Cachorro("Carlos", "Vira-lata", "Caramelo", "Pequeno", d3)
+// c3.exibirCachorro()
+// c3.exibirDono()
+
+//------------------------------------------//
+
+var cb1 = new ContaBancaria("(XX) XXXX-XXXX")
+cb1.consultarSaldo()
+cb1.depositar(100)
+cb1.sacar(40)
+cb1.mostrarDadosConta()

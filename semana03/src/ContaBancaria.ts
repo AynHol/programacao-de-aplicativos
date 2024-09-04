@@ -1,10 +1,10 @@
 import Titular from "./Titular"
 
 export default class ContaBancaria {
-    constructor(chavePix: string) {
+    constructor(titular: Titular, chavePix: string) {
         this.numero = String(Math.floor((Math.random() * 89999) + 10000))
         this.saldo = 0
-        this.titular = new Titular("Carlos", "XXX.XXX.XXX-XX")
+        this.titular = titular
         this.chavePix = chavePix
         this.dataCriacao = new Date()
     }

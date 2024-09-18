@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Helvetica;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f9;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #8fbc8f;
+    width: 100vw;
+    height: 150px;
+    padding: 30px;
+    text-align: center;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 40px;
+    font-family: Helvetica;
+    margin-bottom: 10px;
+}
+
+header nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 30px;
+}
+
+header nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav ul li:hover {
+    font-size: 20px;
+}
+
+main {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.sectionMain {
+    background-color: white;
+    max-width: 70%;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.sectionMain h2 {
+    color: #5f805f;
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.sectionMain p {
+    font-size: 20px;
+    font-family: Helvetica;
+    margin-bottom: 30px;
+}
+
+.sectionMain img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+.sectionCursos {
+    min-width: 90%;
+}
+
+.divConteudo {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    gap: 10px;
+}
+
+.divItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f9;
+    padding: 20px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+.divItem h2 {
+    text-align: center;
+    color: #8fbc8f;
+    font-size: 26px;
+}
+
+.divItem p {
+    text-align: center;
+    color: #333;
+    font-family: Calibri;
+    font-size: 20px;
+}
+
+.sectionContato {
+    min-width: 30%;
+}
+
+.sectionContato form {
+    display: flex;
+    flex-direction: column;
+}
+
+.sectionContato form input,
+.sectionContato form textarea {
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #333;
+    padding: 8px;
+    border-radius: 10px;
+    font-family: Helvetica;
+}
+
+.sectionContato form button {
+    padding: 10px;
+    background-color: #8fbc8f;
+    border: none;
+    border-radius: 10px;
+    font-family: Helvetica;
+}
+
+.sectionContato form button:hover {
+    background-color: #9ecf9e;
+}

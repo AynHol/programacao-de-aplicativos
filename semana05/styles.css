@@ -13,39 +13,6 @@ body {
     min-height: 100vh;
 }
 
-header {
-    background-color: #8fbc8f;
-    width: 100vw;
-    height: 150px;
-    padding: 30px;
-    text-align: center;
-}
-
-header h1 {
-    color: #fff;
-    font-size: 40px;
-    font-family: Helvetica;
-    margin-bottom: 10px;
-}
-
-header nav ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    gap: 30px;
-}
-
-header nav ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-header nav ul li:hover {
-    font-size: 20px;
-}
-
 main {
     padding: 10px;
     display: flex;

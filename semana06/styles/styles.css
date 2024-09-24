@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Helvetica;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f9;
+    min-height: 100vh;
+}
+
+main {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.sectionMain {
+    background-color: white;
+    max-width: 70%;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.sectionMain h2 {
+    color: #5f805f;
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.sectionMain p {
+    font-size: 20px;
+    font-family: Helvetica;
+    margin-bottom: 30px;
+}
+
+.sectionMain img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+.sectionCursos {
+    min-width: 90%;
+}
+
+.divConteudo {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    gap: 10px;
+}
+
+.divItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f9;
+    padding: 20px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+.divItem h2 {
+    text-align: center;
+    color: #8fbc8f;
+    font-size: 26px;
+}
+
+.divItem p {
+    text-align: center;
+    color: #333;
+    font-family: Helvetica;
+    font-size: 20px;
+}
+
+.sectionContato {
+    min-width: 30%;
+}
+
+.sectionContato form {
+    display: flex;
+    flex-direction: column;
+}
+
+.sectionContato form input,
+.sectionContato form textarea {
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #333;
+    padding: 8px;
+    border-radius: 10px;
+    font-family: Helvetica;
+}
+
+.sectionContato form button {
+    padding: 10px;
+    background-color: #8fbc8f;
+    border: none;
+    border-radius: 10px;
+    font-family: Helvetica;
+}
+
+.sectionContato form button:hover {
+    background-color: #9ecf9e;
+}
+.sectionContato form button:disabled {
+    background-color: #a5a5a5;
+    color: #000000;
+}
+
+.comentarios {
+    display: flex;
+    flex-direction: column;
+}
+
+.comentarios .comentario-item {
+    display: flex;
+    flex-direction: column;
+    background-color: #d1d1d1;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: Helvetica;
+}
+
+.comentarios .comentario-item p {
+    margin-bottom: 0;
+}

@@ -32,7 +32,7 @@ function render() {
         finish.textContent = tasks[i].completed ? "Desmarcar" : "Concluir";
         finish.classList.add("check");
         const edit = document.createElement("button");
-        edit.textContent = "edit";
+        edit.textContent = "Editar";
         edit.classList.add("edit");
         const deletar = document.createElement("button");
         deletar.textContent = "Deletar";
@@ -44,5 +44,11 @@ function render() {
         li.appendChild(span);
         li.appendChild(div);
         tasklist.appendChild(li);
+    }
+}
+
+function capturarTecla(event) {
+    if (event.key === "Enter") {
+        addTask();
     }
 }

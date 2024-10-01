@@ -16,7 +16,7 @@
         />
         <link rel="stylesheet" href="styles/styles.css" />
     </head>
-    <body onkeypress="capturarTecla(event)">
+    <body onload="loadTasks()">
         <div class="container">
             <h1>ToDo List</h1>
             <div class="group-input">
@@ -24,51 +24,11 @@
                     type="text"
                     id="task-text"
                     placeholder="Adicionar Tarefa"
+                    onkeypress="enterKey(event)"
                 />
                 <button id="add-task" onclick="addTask()">Adicionar</button>
             </div>
-            <ul id="task-list">
-                <li>
-                    <span>Tarefa Numero 1</span>
-                    <div>
-                        <button class="check">
-                            <span class="material-symbols-outlined">
-                                check
-                            </span>
-                        </button>
-                        <button class="edit">
-                            <span class="material-symbols-outlined">
-                                edit
-                            </span>
-                        </button>
-                        <button class="delete">
-                            <span class="material-symbols-outlined">
-                                delete
-                            </span>
-                        </button>
-                    </div>
-                </li>
-                <li class="completed">
-                    <span>Tarefa Numero 1</span>
-                    <div>
-                        <button class="check">
-                            <span class="material-symbols-outlined">
-                                check
-                            </span>
-                        </button>
-                        <button class="edit">
-                            <span class="material-symbols-outlined">
-                                edit
-                            </span>
-                        </button>
-                        <button class="delete">
-                            <span class="material-symbols-outlined">
-                                delete
-                            </span>
-                        </button>
-                    </div>
-                </li>
-            </ul>
+            <ul id="task-list"></ul>
         </div>
         <script src="scripts/script.js"></script>
     </body>

@@ -86,6 +86,9 @@ body {
     color: #00ff00;
 }
 
+.completed .check {
+    color: #dc3545;
+}
 .edit {
     color: #007bff;
 }
@@ -101,5 +104,5 @@ body {
 }
 
 .completed {
-    background-color: #dcedc8;
+    background-color: #dcedc8 !important;
 }

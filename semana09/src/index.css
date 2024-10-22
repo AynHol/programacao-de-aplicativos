@@ -1,0 +1,78 @@
+body {
+  background-color: #e5e6f0;
+}
+
+header {
+  background-color: #fff;
+  margin: 30px auto 10px;
+  width: 80vw;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 14px rgba(0,0,0, 0.1);
+}
+
+header h2 {
+  font-size: 30px;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+  height: 500px;
+  width: 80vw;
+  margin: 20px auto 0;
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+}
+
+form {
+  background-color: #fff;
+  width: 400px;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 0 14px rgba(0,0,0, 0.1);
+  height: fit-content;
+}
+
+aside {
+  background-color: yellow;
+  width: 100%;
+}
+
+form h2 {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+form .input-data {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+form .input-data:not(:last-of-type){
+  margin-bottom: 20px;
+}
+
+form .input-data label {
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+form .input-data input {
+  height: 48px;
+  font-size: 14px;
+  color: #666;
+  border-radius: 8px;
+  outline: none;
+  border-color: transparent;
+  background-color: #f0f0f0;
+  padding: 0 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

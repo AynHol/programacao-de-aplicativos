@@ -8,7 +8,7 @@ header {
   width: 80vw;
   padding: 20px;
   border-radius: 16px;
-  box-shadow: 0 0 14px rgba(0,0,0, 0.1);
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.1);
 }
 
 header h2 {
@@ -28,16 +28,18 @@ main {
 
 form {
   background-color: #fff;
-  width: 400px;
+  width: 500px;
   border-radius: 16px;
   padding: 16px;
-  box-shadow: 0 0 14px rgba(0,0,0, 0.1);
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.1);
   height: fit-content;
 }
 
 aside {
-  background-color: yellow;
   width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
 }
 
 form h2 {
@@ -45,16 +47,13 @@ form h2 {
   font-weight: bold;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 form .input-data {
   display: flex;
   flex-direction: column;
-  row-gap: 5px;
-}
-
-form .input-data:not(:last-of-type){
+  row-gap: 3px;
   margin-bottom: 20px;
 }
 
@@ -75,4 +74,74 @@ form .input-data input {
   background-color: #f0f0f0;
   padding: 0 10px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+form button {
+  width: 100%;
+  background-color: #094929;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #07311c;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.card .info {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.card .info strong {
+  font-size: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+.card .info span {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+}
+
+.card .card-button {
+  display: flex;
+  flex-direction: row;
+}
+
+.card .card-button button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+#see-button{
+  background-color: #0c8b369f;
+  border-bottom-left-radius: 16px;
+}
+
+#delete-button{
+background-color: #d42828bb;
+border-bottom-right-radius: 16px;
+color: #fff;
 }

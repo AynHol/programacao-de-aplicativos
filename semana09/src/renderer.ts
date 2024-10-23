@@ -1,32 +1,51 @@
-/**
- * This file will automatically be loaded by webpack and run in the "renderer" context.
- * To learn more about the differences between the "main" and the "renderer" context in
- * Electron, visit:
- *
- * https://electronjs.org/docs/latest/tutorial/process-model
- *
- * By default, Node.js integration in this file is disabled. When enabling Node.js integration
- * in a renderer process, please be aware of potential security implications. You can read
- * more about security risks here:
- *
- * https://electronjs.org/docs/tutorial/security
- *
- * To enable Node.js integration in this file, open up `main.js` and enable the `nodeIntegration`
- * flag:
- *
- * ```
- *  // Create the browser window.
- *  mainWindow = new BrowserWindow({
- *    width: 800,
- *    height: 600,
- *    webPreferences: {
- *      nodeIntegration: true
- *    }
- *  });
- * ```
- */
+import "./reset.css";
+import "./index.css";
 
-import './reset.css';
-import './index.css';
+var vehicleList: any = [];
 
-console.log('👋 This message is being logged by "renderer.js", included via webpack');
+document.getElementById("singup-button")?.addEventListener("click", (event: MouseEvent) => {
+    event.preventDefault();
+
+    var model = document.getElementById("model") as HTMLInputElement;
+    var colour = document.getElementById("colour") as HTMLInputElement;
+    var year = document.getElementById("year") as HTMLInputElement;
+    var price = document.getElementById("price") as HTMLInputElement;
+    var plate = document.getElementById("plate") as HTMLInputElement;
+    var image = document.getElementById("image") as HTMLInputElement;
+
+    const newCar = {
+        model: model.value,
+        colour: colour.value,
+        year: year.value,
+        price: price.value,
+        plate: plate.value,
+        image: image.value,
+    };
+
+    vehicleList.push(newCar);
+
+    const campo_list = ["model", "colour", "year", "price", "plate", "image"];
+    campo_list.forEach((campo) => (document.getElementById(campo) as HTMLInputElement).value = "");
+
+    var aside = document.getElementById("vehicle-list");
+    aside.innerHTML = "";
+
+    for(var i = 0; i < vehicleList.length; i++){
+        aside.innerHTML += `
+            <div class="card">
+                <img src="${vehicleList[i].image}" alt="ERRO">
+                <div class="info">
+                    <strong>${vehicleList[i].model}</strong>
+                    <span>Cor: ${vehicleList[i].colour}</span>
+                    <span>Ano: ${vehicleList[i].year}</span>
+                    <span>Preço: R$${vehicleList[i].price}</span>
+                    <span>Placa: ${vehicleList[i].plate}</span>
+                </div>
+                <div class="card-button">
+                    <button id="see-button">Ver</button>
+                    <button id="delete-button">Deletar</button>
+                </div>
+            </div>
+        `;
+    };
+});

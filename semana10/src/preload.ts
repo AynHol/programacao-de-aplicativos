@@ -1,6 +1,9 @@
 import { contextBridge, ipcRenderer } from "electron";
-import Vehicle from "./entity/Vehicle";
+import Vehiclee from "./entity/Vehicle";
 
 contextBridge.exposeInMainWorld("bankAPI", {
-    createVehicle: async (Vehicle: Vehicle) => await ipcRenderer.invoke("create", Vehicle)
+    createVehicle: async (Vehicle: Vehiclee) =>
+        await ipcRenderer.invoke("create", Vehicle),
+    findAll: async () => await ipcRenderer.invoke("findAll"),
+    findById: async (id: string) => await ipcRenderer.invoke("findById", id),
 });

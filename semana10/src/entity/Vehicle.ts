@@ -1,6 +1,6 @@
 import { v4 as uuid } from "uuid";
 
-export default class Vehicle {
+export default class Vehiclee {
     private id: string;
     private model: string;
     private colour: string;

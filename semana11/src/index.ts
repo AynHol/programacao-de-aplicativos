@@ -6,27 +6,29 @@ import Vehiclee from "./entity/Vehicle";
 // whether you're running in development or production).
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
+declare const DETAILS_WEBPACK_ENTRY: string;
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require("electron-squirrel-startup")) {
-    app.quit();
+  app.quit();
 }
 
+var mainWindow: BrowserWindow;
 const createWindow = (): void => {
-    // Create the browser window.
-    const mainWindow = new BrowserWindow({
-        height: 600,
-        width: 800,
-        webPreferences: {
-            preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
-        },
-    });
+  // Create the browser window.
+  mainWindow = new BrowserWindow({
+    height: 600,
+    width: 800,
+    webPreferences: {
+      preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
+    },
+  });
 
-    // and load the index.html of the app.
-    mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
+  // and load the index.html of the app.
+  mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
-    // Open the DevTools.
-    mainWindow.webContents.openDevTools();
+  // Open the DevTools.
+  mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished
@@ -38,17 +40,17 @@ app.on("ready", createWindow);
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on("window-all-closed", () => {
-    if (process.platform !== "darwin") {
-        app.quit();
-    }
+  if (process.platform !== "darwin") {
+    app.quit();
+  }
 });
 
 app.on("activate", () => {
-    // On OS X it's common to re-create a window in the app when the
-    // dock icon is clicked and there are no other windows open.
-    if (BrowserWindow.getAllWindows().length === 0) {
-        createWindow();
-    }
+  // On OS X it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow();
+  }
 });
 
 // In this file you can include the rest of your app's specific main process
@@ -56,15 +58,7 @@ app.on("activate", () => {
 
 ipcMain.handle("create", async (_: any, Vehicle: any) => {
   const { id, model, colour, ano, price, plate, image } = Vehicle;
-  const newVehicle = new Vehiclee(
-    model,
-    colour,
-    ano,
-    price,
-    plate,
-    image,
-    id
-  );
+  const newVehicle = new Vehiclee(model, colour, ano, price, plate, image, id);
   new VehicleRepository().save(newVehicle);
 });
 
@@ -78,4 +72,12 @@ ipcMain.handle("findById", async (_: any, id: string) => {
 
 ipcMain.handle("vehicleDelete", async (_: any, id: string) => {
   await new VehicleRepository().delete(id);
+});
+
+ipcMain.on("changePage", (_: any, id: string) => {
+  mainWindow.loadURL(DETAILS_WEBPACK_ENTRY + `?id=${id}`);
+});
+
+ipcMain.on("changePageHome", () => {
+  mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 });

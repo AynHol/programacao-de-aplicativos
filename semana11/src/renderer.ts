@@ -77,7 +77,7 @@ document
                 <span>Placa: ${vehicleList[i].getPlate()}</span>
                 </div>
                 <div class="card-button">
-                <button id="see-button" data-id="${vehicleList[i].getId()}">Ver</button>
+                <button id="see-button" onclick="detailsPage('${vehicleList[i].getId()}')">Ver</button>
                 <button id="delete-button" onclick="vehicleDelete('${vehicleList[i].getId()}')">Deletar</button>
                 </div>
                 </div>
@@ -85,7 +85,7 @@ document
             }
         }
 
-function vehicleDelete(id: string){
+function vehicleDelete(id: string) {
     // chama a função de deletar do preload, no contexto de 'bankAPI'
     (window as any).bankAPI.vehicleDelete(id);
     // filtra todos os itens com id diferente do id que veio por parametro
@@ -93,4 +93,10 @@ function vehicleDelete(id: string){
     render();
 }
 
+function detailsPage(id: string) {
+    // chama a função de ir para a página de detalhes do preload, no contexto de 'bankAPI'
+    (window as any).navigateAPI.detailsPage(id);
+}
+
 (window as any).vehicleDelete = vehicleDelete;
+(window as any).detailsPage = detailsPage;

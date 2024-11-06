@@ -98,6 +98,7 @@ form button:hover {
   height: fit-content;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.1);
 }
 
 .card img {

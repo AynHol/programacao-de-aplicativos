@@ -1,8 +1,8 @@
 import "./login.css";
 import "../../reset.css";
-import User from "../../entity/User";
+import { hash } from "bcrypt";
 
-document.getElementById("cadastrar").addEventListener("click", (event: MouseEvent) => {
+document.getElementById("cadastrar").addEventListener("click", async (event: MouseEvent) => {
     event.preventDefault();
 
     var nome = document.getElementById("nome") as HTMLInputElement;
@@ -15,7 +15,47 @@ document.getElementById("cadastrar").addEventListener("click", (event: MouseEven
         return;
     }
 
-    var usuario = new User(nome.value, email.value, password.value, new Date(dataNascimento.value));
-    (window as any).bankAPI.createUser(usuario)
+    const existentUser = await (window as any).bancoAPI.findByEmail(email.value);
+    console.log(existentUser)
+    if(!!existentUser){
+        console.log("Já existe")
+        return;
+    }
 
+    var user = {
+        nome: nome.value,
+        email: email.value,
+        password: password.value,
+        data_nascimento: new Date(dataNascimento.value)
+    }
+
+    await (window as any).bankAPI.createUser(user)
+
+});
+
+document.getElementById("acessar").addEventListener("click", async (event: MouseEvent) => {
+    event.preventDefault();
+
+    const email = document.getElementById("email_login") as HTMLInputElement;
+    const password = document.getElementById("password_login") as HTMLInputElement;
+
+    const user = await (window as any).bancoAPI.findByEmail(email.value)
+    if(!user){
+        console.log("Usuário não existe...")
+        return;
+    }
+
+    const passwordConfirmation = {
+        password: password.value,
+        password_hash: user.password_hash as string
+    }
+
+    const validPassword = await (window as any).authAPI.hash(passwordConfirmation);
+
+    if(!validPassword){
+        console.log("Credenciais incorretas...")
+        return;
+    }
+
+    (window as any).navigateAPI.irPaginaHome();
 });

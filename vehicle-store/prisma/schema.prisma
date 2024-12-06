@@ -10,7 +10,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = "postgresql://postgres:senai@localhost:5432/algo?schema=public"
 }
 
 model Usuario {
@@ -20,4 +20,16 @@ model Usuario {
   senha String
 
   @@map("usuario")
+}
+
+model Produto {
+  id           String   @id
+  name         String
+  categoria    String
+  manufacturer String
+  amount       Int
+  updatedAt    DateTime
+  createdAt    DateTime
+
+  @@map("produto")
 }

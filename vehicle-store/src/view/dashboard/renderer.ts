@@ -39,35 +39,35 @@ document.getElementById("buscar-product").addEventListener("click", async (event
 })
 
 document.getElementById("buscar-amount-by-category").addEventListener("click", async (event: MouseEvent) => {
-    const values = await (window as any).productAPI.findAmountByCategory();
-    console.log(values);
+  const values = await (window as any).productAPI.findAmountByCategory();
+  console.log(values);
 
-    const amounts = [];
-    const categories = [];
+  const amounts = [];
+  const categories = [];
 
-    for(var i = 0; i < values.length; i++){
-        amounts.push(values[i].amount);
-        categories.push(values[i].category);
-    }
+  for(var i = 0; i < values.length; i++){
+    amounts.push(values[i]._sum.amount);
+    categories.push(values[i].category);
+  }
 
-    const div = document.getElementById("grafico") as HTMLDivElement;
-    const grafico = echarts.init(div);
-    const option = {
-        xAxis: {
-          type: 'category',
-          data: categories
-        },
-        yAxis: {
-          type: 'value'
-        },
-        series: [
-          {
-            data: amounts,
-            type: 'bar'
-          }
-        ]
-      };
+  const div = document.getElementById("grafico") as HTMLDivElement;
+  const grafico = echarts.init(div);
+  const option = {
+    xAxis: {
+      type: 'category',
+      data: categories
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: [
+      {
+        data: amounts,
+        type: 'bar'
+      }
+    ]
+  };
 
-    grafico.setOption(option);
+  grafico.setOption(option);
 })
 
